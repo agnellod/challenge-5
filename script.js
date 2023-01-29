@@ -2,7 +2,6 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 var timeDisplayEl = $('#current-day');
-// var saveBtn = $('.saveBtn');
 var colors = $('.time-block');
 
 function displayTime(){
@@ -11,14 +10,7 @@ function displayTime(){
 }
 
 $(function () {
-//     // TODO: Add a listener for click events on the save button. This code should
-//     // use the id in the containing time-block as a key to save the user input in
-//     // local storage. HINT: What does `this` reference in the click listener
-//     // function? How can DOM traversal be used to get the "hour-x" id of the
-//     // time-block containing the button that was clicked? How might the id be
-//     // useful when saving the description in local storage?
 
-//     // TODO: Add code to display the current date in the header of the page.
 function setColors() {
     var hour = dayjs().format('H');
     console.log(colors[0]);
@@ -36,7 +28,6 @@ function setColors() {
 
 });    
 
-    // saveBtn.on('click', save);
 
  $(".saveBtn").on("click", function () {
     var textArea = $(this).siblings(".description").val(); 
@@ -56,7 +47,8 @@ function setColors() {
     $("#hour-17 .description").val(localStorage.getItem("hour-17"));
 
                 
-            
+    displayTime();
+    setInterval(displayTime, 1000);            
                 
                 
                 
@@ -109,8 +101,3 @@ function setColors() {
 // getting from localstorage
 // parse the data from localStorage to turn it back into an object (If the data was stored as a JSON)
 // to have it display as the string it was entered as
-
-
-
-  displayTime();
-  setInterval(displayTime, 1000);
